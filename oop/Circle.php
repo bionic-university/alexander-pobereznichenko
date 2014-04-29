@@ -6,7 +6,7 @@
  * Date: 28.04.14
  * Time: 18:37
  */
-class Circle
+class Circle extends AbstractCircle
 {
     public $material;
 
@@ -57,5 +57,10 @@ class Circle
         $this->$material = $material;
         $this->$radius = $material;
         $this->$color = $material;
+    }
+
+    public function rotate()
+    {
+        // TODO: Implement rotate() method.
     }
 }
