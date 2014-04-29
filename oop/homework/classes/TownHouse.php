@@ -6,7 +6,7 @@
  * Time: 8:47
  */
 
-class TownHouse extends Building{
+class TownHouse extends AbstractBuilding{
     public function approximateSellPrice()
     {
         // TODO: Implement approximateSellPrice() method.

@@ -6,7 +6,7 @@
  * Date: 29.04.14
  * Time: 8:47
  */
-class Flat extends Building
+class Flat extends AbstractBuilding
 {
     private $floor;
 

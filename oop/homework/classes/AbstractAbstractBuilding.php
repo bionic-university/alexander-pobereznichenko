@@ -6,7 +6,7 @@
  * Date: 29.04.14
  * Time: 8:29
  */
-abstract class Building
+abstract class AbstractBuilding
 {
     public function __construct($sellPriceFactor, $rentPriceFactor, $rooms, $area)
     {
