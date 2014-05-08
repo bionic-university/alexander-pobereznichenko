@@ -37,7 +37,7 @@ abstract class AbstractCurrency
      */
     public function getCrossCourse($currency)
     {
-        return $this->crossCourses[$this->getCurrencyName()][$currency];
+        return $this->crossCourses[$currency][$this->getCurrencyName()];
     }
 
     /**
@@ -45,7 +45,7 @@ abstract class AbstractCurrency
      * @param string $currency
      * @return integer
      */
-    public function convertCurrency($sum, $currency)
+    public function convertIntoCurrentCurrency($sum, $currency)
     {
         if ($currency === $this->getCurrencyName()) {
             return $sum;

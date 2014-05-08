@@ -8,7 +8,6 @@
 
 namespace homework_2\payment;
 
-
 class Payment
 {
     /**
@@ -20,12 +19,10 @@ class Payment
      * @var integer
      */
     private $totalPrice;
-
     /**
      * @var AbstractCurrency
      */
-    private $currentCurrency;
-
+    private $currency;
 
     /**
      * @return float
@@ -36,10 +33,14 @@ class Payment
     }
 
     /**
-     * @param float $sumReceived
+     * @param $sumReceived
+     * @param string $currency
      */
-    public function setSumReceived($sumReceived)
+    public function setSumReceived($sumReceived, $currency)
     {
+        if ($this->currency->getCurrencyName() !== $currency) {
+            $sumReceived = $this->currency->convertIntoCurrentCurrency($sumReceived, $currency);
+        }
         $this->sumReceived = $sumReceived;
     }
 
@@ -48,7 +49,7 @@ class Payment
      */
     public function  getCurrencyName()
     {
-        return $this->currentCurrency->getCurrencyName();
+        return $this->currency->getCurrencyName();
     }
 
     /**
@@ -70,34 +71,30 @@ class Payment
     /**
      * @return AbstractCurrency
      */
-    public function getCurrentCurrency()
+    public function getCurrency()
     {
-        return $this->currentCurrency;
+        return $this->currency;
     }
 
     /**
      * @param string $currency
+     * @return AbstractCurrency
      */
-    public function setCurrentCurrency($currency)
+    public function setCurrency($currency)
     {
-        $className = "\\homework_2\\payment\\$currency";
-        $this->currentCurrency = new $className;
+        $className = "homework_2\\payment\\$currency";
+        $this->currency = new $className;
     }
 
-    /**
-     * @param string $neededCurrency
-     */
-    public function changePaymentCurrency($neededCurrency)
+    public function countChange()
     {
-        if($neededCurrency){
-            $this->setSumReceived($this->currentCurrency->convertCurrency($this->sumReceived, $neededCurrency));
-            $this->setTotalPrice($this->currentCurrency->convertCurrency($this->totalPrice, $neededCurrency));
-            $this->setCurrentCurrency($neededCurrency);
-        }
+        return $this->getSumReceived() - $this->getTotalPrice();
     }
 
-    public function __construct($currency)
+    public function __construct($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency)
     {
-        $this->setCurrentCurrency($currency);
+        $this->setCurrency($priceCurrency);
+        $this->setSumReceived($sumReceived, $receivedCurrency);
+        $this->setTotalPrice($totalPrice);
     }
 }

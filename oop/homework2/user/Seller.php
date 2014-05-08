@@ -6,18 +6,42 @@
  * Time: 10:11
  */
 
-namespace homework2\user;
+namespace homework_2\user;
 
+
+use homework_2\payment\Payment;
 
 class Seller extends AbstractUser
 {
-    public function getPayment()
+    /**
+     * @var Payment;
+     */
+    private $receivedPayment;
+
+    /**
+     * @return Payment
+     */
+    public function getReceivedPayment()
     {
-        //@TODO
+        return $this->receivedPayment;
+    }
+
+    /**
+     * @param Payment $receivedPayment
+     */
+    public function setReceivedPayment($receivedPayment)
+    {
+        $this->receivedPayment = $receivedPayment;
+    }
+
+    public function receivePayment($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency)
+    {
+        $this->setReceivedPayment(new Payment($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency));
     }
 
     public function giveChange()
     {
-        //@TODO
+        $change = $this->getReceivedPayment()->countChange();
+        return $change;
     }
 }

@@ -6,9 +6,10 @@
  * Time: 10:09
  */
 
-namespace homework2\user;
+namespace homework_2\user;
 
 
-class AbstractUser {
+class AbstractUser
+{
 
 } 
