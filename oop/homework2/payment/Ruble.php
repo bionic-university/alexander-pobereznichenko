@@ -2,16 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: sania
- * Date: 06.05.14
- * Time: 21:48
+ * Date: 07.05.14
+ * Time: 22:14
  */
 
 namespace homework_2\payment;
 
-class UAH extends AbstractCurrency
+class Ruble extends AbstractCurrency
 {
-    private $currencyName = 'UAH';
-
+    private $currencyName = 'Ruble';
     /**
      * @return array of integer values
      */
@@ -23,8 +22,9 @@ class UAH extends AbstractCurrency
     /**
      * @return string
      */
-    public function getCurrencyName()
+    function getCurrencyName()
     {
         return $this->currencyName;
     }
+
 } 

@@ -6,10 +6,51 @@
  * Time: 21:06
  */
 
-namespace homework_2\payment\AbstractCurrency;
-
+namespace homework_2\payment;
 
 abstract class AbstractCurrency
 {
+    private $crossCourses = array(
+        'UAH' => array(
+            'Ruble' => 4,
+            'USD' => 0.12,
+        ),
+        'Ruble' => array(
+            'UAH' => 0.4,
+            'USD' => 0.03,
+        ),
+    );
 
+    /**
+     * @return array of integer values
+     */
+    abstract function getAvailableNotes();
+
+    /**
+     * @return string
+     */
+    abstract function getCurrencyName();
+
+    /**
+     * @param string $currency
+     * @return integer
+     */
+    public function getCrossCourse($currency)
+    {
+        return $this->crossCourses[$this->getCurrencyName()][$currency];
+    }
+
+    /**
+     * @param integer $sum
+     * @param string $currency
+     * @return integer
+     */
+    public function convertCurrency($sum, $currency)
+    {
+        if ($currency === $this->getCurrencyName()) {
+            return $sum;
+        }
+
+        return $sum * $this->getCrossCourse($currency);
+    }
 } 
