@@ -9,9 +9,14 @@
 namespace homework_2\user;
 
 
+use homework2\interfaces\ReceivePaymentInterface;
 use homework_2\payment\Payment;
 
-class Seller extends AbstractUser
+/**
+ * Class Seller
+ * @package homework_2\user
+ */
+class Seller extends AbstractUser implements ReceivePaymentInterface
 {
     /**
      * @var Payment;
@@ -34,14 +39,22 @@ class Seller extends AbstractUser
         $this->receivedPayment = $receivedPayment;
     }
 
-    public function receivePayment($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency)
+    /**
+     * @param $sumReceived
+     * @param $price
+     * @param $receivedCurrency
+     * @param $priceCurrency
+     */
+    public function receivePayment($sumReceived, $price, $receivedCurrency, $priceCurrency)
     {
-        $this->setReceivedPayment(new Payment($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency));
+        $this->setReceivedPayment(new Payment($sumReceived, $price, $receivedCurrency, $priceCurrency));
     }
 
+    /**
+     * @return array
+     */
     public function giveChange()
     {
-        $change = $this->getReceivedPayment()->countChange();
-        return $change;
+        return $this->getReceivedPayment()->composeChange();
     }
 }

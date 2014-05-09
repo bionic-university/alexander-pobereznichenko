@@ -8,15 +8,22 @@
 
 namespace homework_2\payment;
 
+/**
+ * Class AbstractCurrency
+ * @package homework_2\payment
+ */
 abstract class AbstractCurrency
 {
+    /**
+     * @var array
+     */
     private $crossCourses = array(
         'UAH' => array(
-            'Ruble' => 4,
+            'Ruble' => 3,
             'USD' => 0.12,
         ),
         'Ruble' => array(
-            'UAH' => 0.4,
+            'UAH' => 0.33,
             'USD' => 0.03,
         ),
     );

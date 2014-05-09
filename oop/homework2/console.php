@@ -16,7 +16,7 @@ function loader($className)
     }
 }
 
-$seller = new Seller();
+$seller = new Seller('Sasha', 'example@gmail.com');
 
 $handle = fopen("php://stdin", 'r');
 
@@ -35,4 +35,7 @@ $receivedCurrency = trim(fgets($handle), "\n");
 $seller->receivePayment($receivedSum, $price, $receivedCurrency, $priceCurrency);
 $change = $seller->giveChange();
 
-echo "\nСдача: $change\n\n";
+echo "\nСдача: \n";
+foreach ($change as $note => $amount) {
+    echo "{$note} {$priceCurrency} - {$amount}\n";
+}

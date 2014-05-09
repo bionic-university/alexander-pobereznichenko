@@ -8,6 +8,10 @@
 
 namespace homework_2\payment;
 
+/**
+ * Class Payment
+ * @package homework_2\payment
+ */
 class Payment
 {
     /**
@@ -18,7 +22,7 @@ class Payment
     /**
      * @var integer
      */
-    private $totalPrice;
+    private $price;
     /**
      * @var AbstractCurrency
      */
@@ -55,17 +59,17 @@ class Payment
     /**
      * @return int
      */
-    public function getTotalPrice()
+    public function getPrice()
     {
-        return $this->totalPrice;
+        return $this->price;
     }
 
     /**
-     * @param int $totalPrice
+     * @param int $price
      */
-    public function setTotalPrice($totalPrice)
+    public function setPrice($price)
     {
-        $this->totalPrice = $totalPrice;
+        $this->price = $price;
     }
 
     /**
@@ -86,15 +90,47 @@ class Payment
         $this->currency = new $className;
     }
 
+    /**
+     * @return float
+     */
     public function countChange()
     {
-        return $this->getSumReceived() - $this->getTotalPrice();
+        return $this->getSumReceived() - $this->getPrice();
     }
 
-    public function __construct($sumReceived, $totalPrice, $receivedCurrency, $priceCurrency)
+    /**
+     * @return array
+     */
+    public function composeChange()
+    {
+        $changeSum = $this->countChange();
+        $change = array();
+        $availableNotes = $this->getCurrency()->getAvailableNotes();
+        rsort($availableNotes);
+        foreach ($availableNotes as $note) {
+            if ($changeSum >= $note) {
+                $noteCount = floor($changeSum / $note);
+                $changeSum -= ($note * $noteCount);
+                if ($noteCount) {
+                    $change[$note] = $noteCount;
+                }
+            }
+        }
+        $change['копеек'] = $changeSum * 100;
+
+        return $change;
+    }
+
+    /**
+     * @param $sumReceived
+     * @param $price
+     * @param $receivedCurrency
+     * @param $priceCurrency
+     */
+    public function __construct($sumReceived, $price, $receivedCurrency, $priceCurrency)
     {
         $this->setCurrency($priceCurrency);
         $this->setSumReceived($sumReceived, $receivedCurrency);
-        $this->setTotalPrice($totalPrice);
+        $this->setPrice($price);
     }
 }
