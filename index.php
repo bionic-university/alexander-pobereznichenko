@@ -1,3 +1,3 @@
 <?php
-    include 'oop/Circle.php';
-    include 'oop/AbstractCircle.php';
+    include 'src/Circle.php';
+    include 'src/AbstractCircle.php';
