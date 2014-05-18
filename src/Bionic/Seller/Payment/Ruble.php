@@ -6,11 +6,11 @@
  * Time: 22:14
  */
 
-namespace homework_2\payment;
+namespace Bionic\Seller\Payment;
 
 /**
  * Class Ruble
- * @package homework_2\payment
+ * @package Bionic\Seller\Payment
  */
 class Ruble extends AbstractCurrency
 {

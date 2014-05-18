@@ -6,11 +6,11 @@
  * Time: 10:11
  */
 
-namespace homework_2\user;
+namespace Bionic\Seller\User;
 
+use Bionic\Seller\Payment\Payment;
+use Bionic\Seller\Payment\ReceivePaymentInterface;
 
-use homework2\interfaces\ReceivePaymentInterface;
-use homework_2\payment\Payment;
 
 /**
  * Class Seller

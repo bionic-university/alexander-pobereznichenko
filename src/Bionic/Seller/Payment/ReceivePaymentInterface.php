@@ -6,11 +6,11 @@
  * Time: 14:02
  */
 
-namespace homework2\interfaces;
+namespace Bionic\Seller\Payment;
 
 /**
  * Interface ReceivePaymentInterface
- * @package homework2\interfaces
+ * @package Bionic\Seller\Payment
  */
 interface ReceivePaymentInterface
 {

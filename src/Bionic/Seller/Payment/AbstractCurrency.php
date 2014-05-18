@@ -6,11 +6,11 @@
  * Time: 21:06
  */
 
-namespace homework_2\payment;
+namespace Bionic\Seller\Payment;
 
 /**
  * Class AbstractCurrency
- * @package homework_2\payment
+ * @package Bionic\Seller\Payment
  */
 abstract class AbstractCurrency
 {

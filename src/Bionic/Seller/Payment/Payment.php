@@ -6,11 +6,11 @@
  * Time: 14:17
  */
 
-namespace homework_2\payment;
+namespace Bionic\Seller\Payment;
 
 /**
  * Class Payment
- * @package homework_2\payment
+ * @package Bionic\Seller\Payment
  */
 class Payment
 {
@@ -86,7 +86,7 @@ class Payment
      */
     public function setCurrency($currency)
     {
-        $className = "homework_2\\payment\\$currency";
+        $className = "Bionic\\Seller\\Payment\\$currency";
         $this->currency = new $className;
     }
 

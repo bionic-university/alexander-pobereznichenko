@@ -6,14 +6,14 @@
  * Time: 13:58
  */
 
-namespace homework2\interfaces;
-
+namespace Bionic\Seller\User;
 /**
  * Interface HasAddressInterface
- * @package homework2\interfaces
+ * @package Seller\interfaces
  */
 interface HasAddressInterface
 {
     public function getAddress();
+
     public function setAddress($city, $street, $house);
 } 

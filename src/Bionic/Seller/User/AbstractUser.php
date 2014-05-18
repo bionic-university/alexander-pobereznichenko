@@ -6,10 +6,8 @@
  * Time: 10:09
  */
 
-namespace homework_2\user;
+namespace Bionic\Seller\User;
 
-use homework2\interfaces\HasAddressInterface;
-use homework2\user\Address;
 
 /**
  * Class AbstractUser

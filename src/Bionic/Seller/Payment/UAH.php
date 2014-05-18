@@ -6,11 +6,11 @@
  * Time: 21:48
  */
 
-namespace homework_2\payment;
+namespace Bionic\Seller\Payment;
 
 /**
  * Class UAH
- * @package homework_2\payment
+ * @package Bionic\Seller\Payment
  */
 class UAH extends AbstractCurrency
 {

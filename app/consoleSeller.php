@@ -2,19 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-use homework_2\user\Seller;
+require_once __DIR__ . "/../bootstrap.php";
 
-//session_start();
-spl_autoload_register('loader');
-
-function loader($className)
-{
-    $nameSpace = explode('\\', $className);
-    $path = join('/', array_slice($nameSpace, 1)) . '.php';
-    if (file_exists($path)) {
-        require_once($path);
-    }
-}
+use Bionic\Seller\User\Seller;
 
 $seller = new Seller('Sasha', 'example@gmail.com');
 

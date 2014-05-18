@@ -6,11 +6,11 @@
  * Time: 12:11
  */
 
-namespace homework2\user;
+namespace Bionic\Seller\User;
 
 /**
  * Class Address
- * @package homework2\user
+ * @package Seller\user
  */
 class Address
 {
