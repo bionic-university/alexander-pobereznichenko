@@ -8,9 +8,8 @@
 
 namespace Bionic\Exam;
 
-
 abstract class AbstractResizer
 {
     abstract public function thumbnail($width, $height);
     abstract public function getCenter();
-} 
+}

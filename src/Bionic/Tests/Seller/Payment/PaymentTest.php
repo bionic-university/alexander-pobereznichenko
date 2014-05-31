@@ -8,11 +8,13 @@
  */
 namespace Bionic\Tests\Seller\Payment;
 
+use Bionic\Seller\Payment\Payment;
+
 class PaymentTest extends \PHPUnit_Framework_TestCase
 {
-    public function testTrueIsTrue()
+    public function testCountChange()
     {
-        $foo = true;
-        $this->assertTrue($foo);
+        $payment = new Payment(500, 800, 'UAH', 'UAH');
+        $this->assertNotNull($payment->countChange());
     }
 }

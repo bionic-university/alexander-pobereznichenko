@@ -8,7 +8,6 @@
 
 namespace Bionic\Exam;
 
-
 class Image implements ImageInterface
 {
     /**
@@ -65,7 +64,6 @@ class Image implements ImageInterface
         $this->resizer = $resizer;
     }
 
-
     /**
      * @return \Bionic\Exam\AbstractResizer
      */
@@ -79,10 +77,9 @@ class Image implements ImageInterface
         $this->getResizer()->thumbnail($width, $height);
     }
 
-    function __construct()
+    public function __construct()
     {
         $this->setResizer(new Resizer($this));
     }
 
-
-} 
+}

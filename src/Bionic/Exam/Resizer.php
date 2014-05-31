@@ -8,7 +8,6 @@
 
 namespace Bionic\Exam;
 
-
 class Resizer extends AbstractResizer
 {
     /**
@@ -86,7 +85,7 @@ class Resizer extends AbstractResizer
     /**
      * @param ImageInterface $image
      */
-    function __construct(ImageInterface $image)
+    public function __construct(ImageInterface $image)
     {
         $this->setWidth($image->getWidth());
         $this->setHeight($image->getHeight());
@@ -97,4 +96,4 @@ class Resizer extends AbstractResizer
     {
         // TODO: Implement thumbnail() method.
     }
-} 
+}

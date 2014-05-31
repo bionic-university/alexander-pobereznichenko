@@ -19,7 +19,7 @@
 
     <testsuites>
         <testsuite name="Bionic University Test Suite">
-            <directory>./src/Bionic/Tests</directory>
+            <directory>./src/*/Tests</directory>
         </testsuite>
     </testsuites>
 

@@ -8,7 +8,6 @@
 
 namespace Bionic\Exam;
 
-
 class Point
 {
     /**
@@ -57,4 +56,4 @@ class Point
         $this->setX($x);
         $this->setY($y);
     }
-} 
+}

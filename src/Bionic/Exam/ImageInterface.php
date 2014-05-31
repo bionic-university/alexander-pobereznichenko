@@ -8,9 +8,8 @@
 
 namespace Bionic\Exam;
 
-
 interface ImageInterface
 {
     public function getHeight();
     public function getWidth();
-} 
+}
