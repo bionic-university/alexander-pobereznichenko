@@ -2,6 +2,8 @@
 app/cache
 app/logs
 app/build
+app/test
+symfony.bionic
 coverage
 .DS_Store
 .netbeans
