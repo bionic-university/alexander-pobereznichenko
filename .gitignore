@@ -10,4 +10,4 @@ coverage
 desktop.ini
 cache.properties
 /vendor/
-app/nodejs
+app/angular/node_modules
