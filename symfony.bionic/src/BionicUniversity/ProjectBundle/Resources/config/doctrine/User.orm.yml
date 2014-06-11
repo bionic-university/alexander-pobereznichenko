@@ -1,0 +1,17 @@
+BionicUniversity\ProjectBundle\Entity\User:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: '50'
+        name:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

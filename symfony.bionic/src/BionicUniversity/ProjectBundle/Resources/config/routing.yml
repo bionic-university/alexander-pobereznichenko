@@ -1,0 +1,3 @@
+bionic_university_project_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: BionicUniversityProjectBundle:Default:index }

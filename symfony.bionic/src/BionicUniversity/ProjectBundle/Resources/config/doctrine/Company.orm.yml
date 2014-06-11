@@ -1,0 +1,39 @@
+BionicUniversity\ProjectBundle\Entity\Company:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        foundationYear:
+            type: datetime
+            column: foundation_year
+        description:
+            type: string
+            length: 255
+        nds:
+            type: boolean
+        site:
+            type: string
+            length: '30'
+        address:
+            type: string
+            length: '50'
+    oneToMany:
+        services:
+            targetEntity: CompanyService
+            mappedBy: company
+    manyToOne:
+        owner:
+            targetEntity: User
+            joinColumn:
+                name: owner_id
+                referencedColumnId: id
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,20 @@
+BionicUniversity\ProjectBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: BionicUniversity\ProjectBundle\Entity\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+    oneToMany:
+        services:
+            targetEntity: Service
+            mappedBy: category
+
+    lifecycleCallbacks: {  }
