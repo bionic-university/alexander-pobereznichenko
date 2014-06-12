@@ -1,0 +1,30 @@
+service:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:index" }
+
+service_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:show" }
+
+service_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:new" }
+
+service_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:create" }
+    requirements: { _method: post }
+
+service_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:edit" }
+
+service_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:update" }
+    requirements: { _method: post|put }
+
+service_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityProjectBundle:Service:delete" }
+    requirements: { _method: post|delete }

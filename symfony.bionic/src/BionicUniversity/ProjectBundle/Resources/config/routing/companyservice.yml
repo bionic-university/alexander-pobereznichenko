@@ -1,0 +1,30 @@
+companyservice:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:index" }
+
+companyservice_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:show" }
+
+companyservice_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:new" }
+
+companyservice_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:create" }
+    requirements: { _method: post }
+
+companyservice_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:edit" }
+
+companyservice_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:update" }
+    requirements: { _method: post|put }
+
+companyservice_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityProjectBundle:CompanyService:delete" }
+    requirements: { _method: post|delete }

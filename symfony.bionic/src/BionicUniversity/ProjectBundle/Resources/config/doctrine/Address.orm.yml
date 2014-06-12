@@ -1,0 +1,34 @@
+BionicUniversity\ProjectBundle\Entity\Address:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        region:
+            type: string
+            length: '50'
+            nullable: true
+        street:
+            type: string
+            length: '50'
+            nullable: true
+        building:
+            type: string
+            length: '10'
+            nullable: true
+        office:
+            type: string
+            length: '10'
+            nullable: true
+    manyToOne:
+        city:
+            targetEntity: City
+            joinColumn:
+                name: city_id
+                referencedColumnId: id
+
+    lifecycleCallbacks: {  }

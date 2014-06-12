@@ -1,0 +1,30 @@
+city:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityProjectBundle:City:index" }
+
+city_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityProjectBundle:City:show" }
+
+city_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityProjectBundle:City:new" }
+
+city_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityProjectBundle:City:create" }
+    requirements: { _method: post }
+
+city_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityProjectBundle:City:edit" }
+
+city_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityProjectBundle:City:update" }
+    requirements: { _method: post|put }
+
+city_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityProjectBundle:City:delete" }
+    requirements: { _method: post|delete }

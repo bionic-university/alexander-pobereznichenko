@@ -42,10 +42,6 @@ class Company
     private $site;
 
     /**
-     * @var string
-     */
-    private $address;
-    /**
      * @var Collection
      */
     private $services;
@@ -188,37 +184,14 @@ class Company
     }
 
     /**
-     * Get address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set address
-     *
-     * @param string $address
-     * @return Company
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
      * Add services
      *
-     * @param CompanyService $services
+     * @param CompanyService $service
      * @return Company
      */
-    public function addService(CompanyService $services)
+    public function addService(CompanyService $service)
     {
-        $this->services[] = $services;
+        $this->services[] = $service;
 
         return $this;
     }
@@ -226,11 +199,11 @@ class Company
     /**
      * Remove services
      *
-     * @param CompanyService $services
+     * @param CompanyService $service
      */
-    public function removeService(CompanyService $services)
+    public function removeService(CompanyService $service)
     {
-        $this->services->removeElement($services);
+        $this->services->removeElement($service);
     }
 
     /**

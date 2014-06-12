@@ -12,6 +12,7 @@ BionicUniversity\ProjectBundle\Entity\Category:
         name:
             type: string
             length: '50'
+            unique: true
     oneToMany:
         services:
             targetEntity: Service

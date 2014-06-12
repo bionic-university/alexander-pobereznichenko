@@ -1,4 +1,4 @@
-BionicUniversity\ProjectBundle\Entity\User:
+BionicUniversity\ProjectBundle\Entity\City:
     type: entity
     table: null
     id:
@@ -8,15 +8,8 @@ BionicUniversity\ProjectBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        email:
-            type: string
-            length: '50'
-            unique: true
         name:
             type: string
             length: '50'
-    oneTomany:
-        companies:
-            targetEntity: Company
-            mappedBy: owner
+            unique: true
     lifecycleCallbacks: {  }

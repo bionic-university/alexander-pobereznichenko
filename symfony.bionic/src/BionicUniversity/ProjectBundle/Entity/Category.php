@@ -82,11 +82,11 @@ class Category
     /**
      * Remove services
      *
-     * @param Service $services
+     * @param Service $service
      */
-    public function removeService(Service $services)
+    public function removeService(Service $service)
     {
-        $this->services->removeElement($services);
+        $this->services->removeElement($service);
     }
 
     /**

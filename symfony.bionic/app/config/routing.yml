@@ -17,3 +17,24 @@ BionicUniversityStudentBundle_faculty:
 BionicUniversityStudentBundle_student:
         resource: "@BionicUniversityStudentBundle/Resources/config/routing/student.yml"
         prefix:   /student
+BionicUniversityProjectBundle_city:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/city.yml"
+        prefix:   /city
+BionicUniversityProjectBundle_address:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/address.yml"
+        prefix:   /address
+BionicUniversityProjectBundle_category:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/category.yml"
+        prefix:   /category
+BionicUniversityProjectBundle_company:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/company.yml"
+        prefix:   /company
+BionicUniversityProjectBundle_companyservice:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/companyservice.yml"
+        prefix:   /companyservice
+BionicUniversityProjectBundle_service:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/service.yml"
+        prefix:   /service
+BionicUniversityProjectBundle_user:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing/user.yml"
+        prefix:   /user

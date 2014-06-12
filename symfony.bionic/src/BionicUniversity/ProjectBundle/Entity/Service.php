@@ -96,12 +96,12 @@ class Service
     /**
      * Add companies
      *
-     * @param CompanyService $companies
+     * @param CompanyService $company
      * @return Service
      */
-    public function addCompany(CompanyService $companies)
+    public function addCompany(CompanyService $company)
     {
-        $this->companies[] = $companies;
+        $this->companies[] = $company;
 
         return $this;
     }
@@ -109,11 +109,11 @@ class Service
     /**
      * Remove companies
      *
-     * @param CompanyService $companies
+     * @param CompanyService $company
      */
-    public function removeCompany(CompanyService $companies)
+    public function removeCompany(CompanyService $company)
     {
-        $this->companies->removeElement($companies);
+        $this->companies->removeElement($company);
     }
 
     /**

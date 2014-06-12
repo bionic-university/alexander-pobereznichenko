@@ -22,9 +22,7 @@ BionicUniversity\ProjectBundle\Entity\Company:
         site:
             type: string
             length: '30'
-        address:
-            type: string
-            length: '50'
+            unique: true
     oneToMany:
         services:
             targetEntity: CompanyService
@@ -32,8 +30,11 @@ BionicUniversity\ProjectBundle\Entity\Company:
     manyToOne:
         owner:
             targetEntity: User
+            invercedBy: companies
             joinColumn:
                 name: owner_id
                 referencedColumnId: id
+
+
 
     lifecycleCallbacks: {  }

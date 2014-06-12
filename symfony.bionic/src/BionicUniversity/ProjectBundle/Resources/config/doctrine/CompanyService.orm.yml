@@ -17,6 +17,7 @@ BionicUniversity\ProjectBundle\Entity\CompanyService:
         additionally:
             type: string
             length: 255
+            nullable: true
     manyToOne:
         service:
             targetEntity: Service

@@ -1,0 +1,30 @@
+address:
+    pattern:  /
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:index" }
+
+address_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:show" }
+
+address_new:
+    pattern:  /new
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:new" }
+
+address_create:
+    pattern:  /create
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:create" }
+    requirements: { _method: post }
+
+address_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:edit" }
+
+address_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:update" }
+    requirements: { _method: post|put }
+
+address_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BionicUniversityProjectBundle:Address:delete" }
+    requirements: { _method: post|delete }

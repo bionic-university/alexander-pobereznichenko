@@ -2,6 +2,8 @@
 
 namespace BionicUniversity\ProjectBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,15 +26,38 @@ class User
      */
     private $name;
 
+    /**
+     * @var Collection
+     */
+    private $companies;
+
+    /**
+     * Constructor
+     */
+    function __construct()
+    {
+        $this->companies = new ArrayCollection();
+    }
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -49,13 +74,13 @@ class User
     }
 
     /**
-     * Get email
+     * Get name
      *
-     * @return string 
+     * @return string
      */
-    public function getEmail()
+    public function getName()
     {
-        return $this->email;
+        return $this->name;
     }
 
     /**
@@ -72,12 +97,32 @@ class User
     }
 
     /**
-     * Get name
-     *
-     * @return string 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getName()
+    public function getCompanies()
     {
-        return $this->name;
+        return $this->companies;
+    }
+
+    /**
+     * @param Company $company
+     * @return $this
+     */
+    public function addCompany(Company $company)
+    {
+        $this->companies[] = $company;
+
+        return $this;
+    }
+
+    /**
+     * @param Company $company
+     * @return $this
+     */
+    public function removeCompany(Company $company)
+    {
+        $this->companies->removeElement($company);
+
+        return $this;
     }
 }
