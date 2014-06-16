@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% extends '::base.html.twig'%}
+{% block stylesheets %}
+    {% stylesheets 'bundles/bionicuniversityproject/css/main.css' filter='cssrewrite' %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block body %}
+    <h1>Hello</h1>
+{% endblock %}

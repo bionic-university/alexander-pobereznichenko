@@ -1,0 +1,8 @@
+BionicUniversity\UserBundle\Entity\Model\Registration:
+    properties:
+        user:
+            - Type: BionicUniversity\UserBundle\Entity\User
+            - Valid: ~
+        termsAccepted:
+            - NotBlank: ~
+            - 'True': ~

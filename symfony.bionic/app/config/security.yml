@@ -1,6 +1,8 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        BionicUniversity\UserBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

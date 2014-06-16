@@ -1,22 +1,10 @@
-bionic_university_project:
-    resource: "@BionicUniversityProjectBundle/Resources/config/routing.yml"
+bionic_university_user:
+    resource: "@BionicUniversityUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-bionic_university_student:
-    resource: "@BionicUniversityStudentBundle/Resources/config/routing.yml"
-    prefix:   /
-BionicUniversityStudentBundle_university:
-        resource: "@BionicUniversityStudentBundle/Resources/config/routing/university.yml"
-        prefix:   /university
-bionic_university_student_bundle_cafedra:
-        resource: "@BionicUniversityStudentBundle/Resources/config/routing/cafedra.yml"
-        prefix:   /cafedra
-BionicUniversityStudentBundle_faculty:
-        resource: "@BionicUniversityStudentBundle/Resources/config/routing/faculty.yml"
-        prefix:   /faculty
-BionicUniversityStudentBundle_student:
-        resource: "@BionicUniversityStudentBundle/Resources/config/routing/student.yml"
-        prefix:   /student
+bionic_university_project:
+        resource: "@BionicUniversityProjectBundle/Resources/config/routing.yml"
+        prefix:   /
 BionicUniversityProjectBundle_city:
         resource: "@BionicUniversityProjectBundle/Resources/config/routing/city.yml"
         prefix:   /city
@@ -35,6 +23,3 @@ BionicUniversityProjectBundle_companyservice:
 BionicUniversityProjectBundle_service:
         resource: "@BionicUniversityProjectBundle/Resources/config/routing/service.yml"
         prefix:   /service
-BionicUniversityProjectBundle_user:
-        resource: "@BionicUniversityProjectBundle/Resources/config/routing/user.yml"
-        prefix:   /user

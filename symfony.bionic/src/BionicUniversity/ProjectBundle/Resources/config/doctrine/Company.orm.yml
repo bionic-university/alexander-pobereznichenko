@@ -29,8 +29,7 @@ BionicUniversity\ProjectBundle\Entity\Company:
             mappedBy: company
     manyToOne:
         owner:
-            targetEntity: User
-            invercedBy: companies
+            targetEntity: BionicUniversity\UserBundle\Entity\User
             joinColumn:
                 name: owner_id
                 referencedColumnId: id
