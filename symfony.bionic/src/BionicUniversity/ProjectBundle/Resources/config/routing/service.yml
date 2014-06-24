@@ -2,10 +2,6 @@ service:
     pattern:  /
     defaults: { _controller: "BionicUniversityProjectBundle:Service:index" }
 
-service_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "BionicUniversityProjectBundle:Service:show" }
-
 service_new:
     pattern:  /new
     defaults: { _controller: "BionicUniversityProjectBundle:Service:new" }

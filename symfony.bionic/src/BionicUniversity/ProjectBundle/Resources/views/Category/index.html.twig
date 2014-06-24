@@ -1,9 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends '@BionicUniversityProject/Admin/index.html.twig' %}
 
-{% block body -%}
-    <h1>Category list</h1>
+{% block content %}
+    <h1>Список категорий</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -14,13 +14,10 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('category_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.id }}</td>
                 <td>{{ entity.name }}</td>
                 <td>
                 <ul>
-                    <li>
-                        <a href="{{ path('category_show', { 'id': entity.id }) }}">show</a>
-                    </li>
                     <li>
                         <a href="{{ path('category_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
@@ -34,7 +31,7 @@
         <ul>
         <li>
             <a href="{{ path('category_new') }}">
-                Create a new entry
+                Создать новую категорию
             </a>
         </li>
     </ul>

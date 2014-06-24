@@ -1,3 +1,44 @@
-body{
-    background: #76ff61;
+body {
+    max-width: 980px;
+    margin: auto;
+}
+
+.header {
+    padding: 15px 0 0;
+    position: relative;
+}
+
+.header .logo {
+    background: url("../images/logo.png") no-repeat;
+    max-width: 247px;
+    height: 47px;
+}
+
+.header .user {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.header .navbar-collapse {
+    padding: 0;
+    margin: 15px 0;
+    background: #428bca;
+}
+
+.header .navbar-collapse a {
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.header .navbar-collapse a:hover {
+    color: #428bca;
+}
+
+.page .content {
+    /*background: #c9ddff;*/
+    /*padding: 20px;*/
+}
+
+.page .sidebar {
 }

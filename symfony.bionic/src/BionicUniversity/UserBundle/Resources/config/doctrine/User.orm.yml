@@ -23,4 +23,8 @@ BionicUniversity\UserBundle\Entity\User:
         isActive:
             type: boolean
             column: is_active
+    manyToMany:
+        roles:
+            targetEntity: BionicUniversity\UserBundle\Entity\Role
+            inversedBy: users
     lifecycleCallbacks: {  }

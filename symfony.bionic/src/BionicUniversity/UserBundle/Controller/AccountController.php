@@ -8,6 +8,7 @@
 
 namespace BionicUniversity\UserBundle\Controller;
 
+use BionicUniversity\UserBundle\Entity\Role;
 use BionicUniversity\UserBundle\Form\Model\Registration;
 use BionicUniversity\UserBundle\Form\Type\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -43,6 +44,9 @@ class AccountController extends Controller
             $encoder = $factory->getEncoder($user);
             $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
             $user->setPassword($password);
+
+            $role = $this->getDoctrine()->getRepository('BionicUniversityUserBundle:Role')->find(2);
+            $user->addRole($role);
 
             $em->persist($user);
             $em->flush();

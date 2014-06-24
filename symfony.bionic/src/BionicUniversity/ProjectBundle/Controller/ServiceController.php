@@ -44,7 +44,7 @@ class ServiceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('service_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('service', array('id' => $entity->getId())));
         }
 
         return $this->render('BionicUniversityProjectBundle:Service:new.html.twig', array(
@@ -85,27 +85,6 @@ class ServiceController extends Controller
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
-    }
-
-    /**
-     * Finds and displays a Service entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('BionicUniversityProjectBundle:Service')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Service entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('BionicUniversityProjectBundle:Service:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**

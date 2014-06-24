@@ -1,4 +1,4 @@
-BionicUniversity\UserBundle\Entity\Model\Registration:
+BionicUniversity\UserBundle\Form\Model\Registration:
     properties:
         user:
             - Type: BionicUniversity\UserBundle\Entity\User
@@ -6,3 +6,12 @@ BionicUniversity\UserBundle\Entity\Model\Registration:
         termsAccepted:
             - NotBlank: ~
             - 'True': ~
+BionicUniversity\UserBundle\Entity\User:
+    properties:
+        email:
+            - NotBlank: ~
+        username:
+            - NotBlank: ~
+    constraints:
+            - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
+            - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email

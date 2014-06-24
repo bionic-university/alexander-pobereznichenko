@@ -98,4 +98,9 @@ class Category
     {
         return $this->services;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

@@ -1,14 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends '@BionicUniversityProject/Admin/index.html.twig' %}
 
-{% block body -%}
+{% block content %}
     <h1>User list</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Username</th>
                 <th>Email</th>
-                <th>Name</th>
+                <th>Isactive</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,8 +17,9 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.username }}</td>
                 <td>{{ entity.email }}</td>
-                <td>{{ entity.name }}</td>
+                <td>{{ entity.isActive }}</td>
                 <td>
                 <ul>
                     <li>

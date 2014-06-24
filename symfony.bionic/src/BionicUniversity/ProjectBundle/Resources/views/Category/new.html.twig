@@ -1,15 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends '@BionicUniversityProject/Admin/index.html.twig' %}
 
-{% block body -%}
-    <h1>Category creation</h1>
+{% form_theme form 'BionicUniversityUserBundle:Form:fields.html.twig' %}
+
+{% block content %}
+    <h1>Создать новую категорию услуг</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('category') }}">
+                назад к списку категорий
+            </a>
+        </li>
+    </ul>
 {% endblock %}

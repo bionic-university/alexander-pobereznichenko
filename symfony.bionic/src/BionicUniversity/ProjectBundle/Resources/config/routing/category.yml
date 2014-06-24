@@ -2,10 +2,6 @@ category:
     pattern:  /
     defaults: { _controller: "BionicUniversityProjectBundle:Category:index" }
 
-category_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "BionicUniversityProjectBundle:Category:show" }
-
 category_new:
     pattern:  /new
     defaults: { _controller: "BionicUniversityProjectBundle:Category:new" }

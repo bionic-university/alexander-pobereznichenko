@@ -2,8 +2,8 @@
 
 namespace BionicUniversity\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -36,11 +36,16 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @var ArrayCollection;
+     */
+    private $roles;
+
     function __construct()
     {
         $this->isActive = true;
+        $this->roles = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -103,7 +108,7 @@ class User implements UserInterface, \Serializable
      *
      * @param string $email
      * @return User
-     */
+    --------------------     */
     public function setEmail($email)
     {
         $this->email = $email;
@@ -195,7 +200,7 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles->toArray();
     }
 
     /**
@@ -222,4 +227,26 @@ class User implements UserInterface, \Serializable
     }
 
 
+    /**
+     * Add roles
+     *
+     * @param Role $roles
+     * @return User
+     */
+    public function addRole(Role $roles)
+    {
+        $this->roles[] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Remove roles
+     *
+     * @param Role $roles
+     */
+    public function removeRole(Role $roles)
+    {
+        $this->roles->removeElement($roles);
+    }
 }

@@ -1,16 +1,20 @@
-{% extends '::base.html.twig' %}
+{% extends '@BionicUniversityProject/Admin/index.html.twig' %}
 
-{% block body -%}
-    <h1>Category edit</h1>
+{% form_theme edit_form 'BionicUniversityUserBundle:Form:fields.html.twig' %}
+
+{% block content %}
+    <h1>Редактировать категорию</h1>
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row">
+        <div class="col-sm-1 col-sm-offset-2">
+            {{ form_start(delete_form) }}
+            {{ form_widget(delete_form.submit, {'attr': {'class': 'btn btn-warning btn-xs' }}) }}
+            {{ form_end(delete_form) }}
+        </div>
+        <div class="col-sm-4">
+            <a href="{{ path('category') }}">назад к списку категорий</a>
+        </div>
+    </div>
 {% endblock %}

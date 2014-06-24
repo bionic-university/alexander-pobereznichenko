@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        {% stylesheets 'bundles/bionicuniversityproject/css/main.css' filter='cssrewrite' %}
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+        {% endstylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}
+    {% block header %}
+        <div class="header container-fluid">
+            <div class="logo"></div>
+            <div class="user">
+                {% if app.user %}
+                    <a href="{{ path('user_show', {'id': app.user.id}) }}"
+                       class="btn btn-lg btn-primary">{{ app.user.username }}</a>
+                    <a href=" {{ path('logout') }}" class="btn btn-lg btn-primary">logout</a>
+                {% else %}
+                    <a href="{{ path('login') }}" class="btn btn-lg btn-primary">Login</a>
+                {% endif %}
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b> Каталог услуг</a>
+                        <ul class="dropdown-menu">
+                            {#todo#}
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('company') }}" class="">Компании</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="page">
+        <div class="sidebar col-md-3">
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+        <div class="content col-md-9">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

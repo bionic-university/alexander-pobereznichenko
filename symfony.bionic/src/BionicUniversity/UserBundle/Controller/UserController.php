@@ -1,41 +1,40 @@
 <?php
 
-namespace BionicUniversity\ProjectBundle\Controller;
+namespace BionicUniversity\UserBundle\Controller;
 
+use BionicUniversity\UserBundle\Form\Type\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BionicUniversity\ProjectBundle\Entity\Category;
-use BionicUniversity\ProjectBundle\Form\CategoryType;
-
+use BionicUniversity\UserBundle\Entity\User;
 /**
- * Category controller.
+ * User controller.
  *
  */
-class CategoryController extends Controller
+class UserController extends Controller
 {
 
     /**
-     * Lists all Category entities.
+     * Lists all User entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BionicUniversityProjectBundle:Category')->findAll();
+        $entities = $em->getRepository('BionicUniversityUserBundle:User')->findAll();
 
-        return $this->render('BionicUniversityProjectBundle:Category:index.html.twig', array(
+        return $this->render('BionicUniversityUserBundle:User:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Category entity.
+     * Creates a new User entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Category();
+        $entity = new User();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +43,26 @@ class CategoryController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('category', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('user_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BionicUniversityProjectBundle:Category:new.html.twig', array(
+        return $this->render('BionicUniversityUserBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a Category entity.
+    * Creates a form to create a User entity.
     *
-    * @param Category $entity The entity
+    * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(Category $entity)
+    private function createCreateForm(User $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
-            'action' => $this->generateUrl('category_create'),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('user_create'),
             'method' => 'POST',
         ));
 
@@ -73,39 +72,59 @@ class CategoryController extends Controller
     }
 
     /**
-     * Displays a form to create a new Category entity.
+     * Displays a form to create a new User entity.
      *
      */
     public function newAction()
     {
-        $entity = new Category();
+        $entity = new User();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BionicUniversityProjectBundle:Category:new.html.twig', array(
+        return $this->render('BionicUniversityUserBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
+    /**
+     * Finds and displays a User entity.
+     *
+     */
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BionicUniversityUserBundle:User')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find User entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('BionicUniversityUserBundle:User:show.html.twig', array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),        ));
+    }
 
     /**
-     * Displays a form to edit an existing Category entity.
+     * Displays a form to edit an existing User entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BionicUniversityProjectBundle:Category')->find($id);
+        $entity = $em->getRepository('BionicUniversityUserBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Category entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BionicUniversityProjectBundle:Category:edit.html.twig', array(
+        return $this->render('BionicUniversityUserBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -113,16 +132,16 @@ class CategoryController extends Controller
     }
 
     /**
-    * Creates a form to edit a Category entity.
+    * Creates a form to edit a User entity.
     *
-    * @param Category $entity The entity
+    * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Category $entity)
+    private function createEditForm(User $entity)
     {
-        $form = $this->createForm(new CategoryType(), $entity, array(
-            'action' => $this->generateUrl('category_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('user_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -131,17 +150,17 @@ class CategoryController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Category entity.
+     * Edits an existing User entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BionicUniversityProjectBundle:Category')->find($id);
+        $entity = $em->getRepository('BionicUniversityUserBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Category entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -151,17 +170,17 @@ class CategoryController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('category_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('user_edit', array('id' => $id)));
         }
 
-        return $this->render('BionicUniversityProjectBundle:Category:edit.html.twig', array(
+        return $this->render('BionicUniversityUserBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Category entity.
+     * Deletes a User entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -171,21 +190,21 @@ class CategoryController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BionicUniversityProjectBundle:Category')->find($id);
+            $entity = $em->getRepository('BionicUniversityUserBundle:User')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Category entity.');
+                throw $this->createNotFoundException('Unable to find User entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('category'));
+        return $this->redirect($this->generateUrl('user'));
     }
 
     /**
-     * Creates a form to delete a Category entity by id.
+     * Creates a form to delete a User entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -194,7 +213,7 @@ class CategoryController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('category_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('user_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

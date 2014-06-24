@@ -1,6 +1,3 @@
-bionic_university_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: BionicUniversityUserBundle:Default:index }
 account_register:
     path:     /register
     defaults: { _controller: BionicUniversityUserBundle:Account:register }

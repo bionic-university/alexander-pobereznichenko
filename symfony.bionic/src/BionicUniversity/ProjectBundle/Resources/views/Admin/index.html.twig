@@ -1,0 +1,13 @@
+{% extends '@BionicUniversityProject/Layout/mainlayout.html.twig' %}
+
+{% block sidebar %}
+    <div class="">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="{{ path('role') }}">Роли</a></li>
+            <li><a href="{{ path('user') }}">Пользователи</a></li>
+            <li><a href="{{path('service')}}">Сервисы</a></li>
+            <li><a href="{{path('category')}}">Категории</a></li>
+            <li><a href="#">fifth</a></li>
+        </ul>
+    </div>
+{% endblock %}

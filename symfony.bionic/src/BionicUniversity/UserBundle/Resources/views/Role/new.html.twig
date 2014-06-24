@@ -3,14 +3,16 @@
 {% form_theme form 'BionicUniversityUserBundle:Form:fields.html.twig' %}
 
 {% block content %}
-    <h1>Service creation</h1>
 
-    {{ form(form) }}
+    <h1>Создать новую роль</h1>
+
+    {{ form_start(form) }}
+    {{ form_end(form) }}
 
     <ul class="record_actions">
         <li>
-            <a href="{{ path('service') }}">
-                Back to the list
+            <a href="{{ path('role') }}">
+                назад к списку ролей
             </a>
         </li>
     </ul>

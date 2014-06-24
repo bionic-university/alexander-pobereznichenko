@@ -3,9 +3,10 @@
 {% form_theme edit_form 'BionicUniversityUserBundle:Form:fields.html.twig' %}
 
 {% block content %}
-    <h1>Service edit</h1>
+    <h1>Редактировать роль</h1>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form) }}
+    {{ form_end(edit_form) }}
 
     <div class="row">
         <div class="col-sm-1 col-sm-offset-2">
@@ -14,7 +15,7 @@
             {{ form_end(delete_form) }}
         </div>
         <div class="col-sm-4">
-            <a href="{{ path('service') }}">назад к списку ролей</a>
+            <a href="{{ path('role') }}">назад к списку ролей</a>
         </div>
     </div>
 {% endblock %}

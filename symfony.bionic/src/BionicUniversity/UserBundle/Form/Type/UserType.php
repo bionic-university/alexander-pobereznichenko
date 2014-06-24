@@ -24,10 +24,17 @@ class UserType extends AbstractType
     {
         $builder->add('email', 'email');
         $builder->add('username', 'text');
+        $builder->add('roles', 'entity', array(
+            'class' => 'BionicUniversity\UserBundle\Entity\Role',
+            'property' => 'name',
+            'expanded' => true,
+            'multiple'     => true
+        ));
         $builder->add('password', 'repeated', array(
-            'first_name' => 'Password',
-            'second_name' => 'Confirm',
-            'type' => 'password'
+            'first_name' => 'pass',
+            'second_name' => 'confirm',
+            'type' => 'password',
+            'label' => false,
         ));
     }
 
@@ -37,7 +44,7 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class'=>'BionicUniversity\UserBundle\Entity\User'
+            'data_class' => 'BionicUniversity\UserBundle\Entity\User'
         ));
     }
 
