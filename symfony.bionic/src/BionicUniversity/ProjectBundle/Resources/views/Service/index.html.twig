@@ -1,14 +1,14 @@
 {% extends '@BionicUniversityProject/Admin/index.html.twig' %}
 
 {% block content %}
-    <h1>Service list</h1>
+    <h1>Список услуг</h1>
 
     <table class="records_list table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
+                <th>Имя</th>
+                <th>действия</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('service_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('service_edit', { 'id': entity.id }) }}">редактировать</a>
                     </li>
                 </ul>
                 </td>
@@ -31,7 +31,7 @@
         <ul>
         <li>
             <a href="{{ path('service_new') }}">
-                Create a new entry
+                добавить новую услугу
             </a>
         </li>
     </ul>

@@ -53,7 +53,7 @@
     {% spaceless %}
         <div {{ block('widget_container_attributes') }}">
             {% for child in form %}
-                <div class="checkbox-inline">
+                <div class="radio-inline">
                 {{ form_widget(child) }}
                 {{ form_label(child) }}
                 </div>

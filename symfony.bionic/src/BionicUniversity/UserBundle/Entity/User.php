@@ -249,4 +249,12 @@ class User implements UserInterface, \Serializable
     {
         $this->roles->removeElement($roles);
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
 }

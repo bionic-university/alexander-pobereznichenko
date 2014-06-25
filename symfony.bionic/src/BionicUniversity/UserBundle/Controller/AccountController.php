@@ -19,8 +19,9 @@ class AccountController extends Controller
 {
     public function registerAction()
     {
+        $securityContext = $this->container->get('security.context');
         $registration = new Registration();
-        $form = $this->createForm(new RegistrationType(), $registration, array(
+        $form = $this->createForm(new RegistrationType($securityContext), $registration, array(
             'action' => $this->generateUrl('account_create'),
         ));
 
@@ -32,9 +33,10 @@ class AccountController extends Controller
 
     public function createAction(Request $request)
     {
+        $securityContext = $this->container->get('security.context');
         $em = $this->getDoctrine()->getManager();
 
-        $form = $this->createForm(new RegistrationType(), new Registration());
+        $form = $this->createForm(new RegistrationType($securityContext), new Registration());
 
         $form->handleRequest($request);
 
@@ -51,7 +53,7 @@ class AccountController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('account_register'));
+            return $this->redirect($this->generateUrl('company'));
         }
 
         return $this->render(

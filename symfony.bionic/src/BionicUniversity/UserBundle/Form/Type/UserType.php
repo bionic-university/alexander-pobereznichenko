@@ -9,12 +9,23 @@
 namespace BionicUniversity\UserBundle\Form\Type;
 
 
+use BionicUniversity\UserBundle\Form\EventListener\AddRoleFieldSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class UserType extends AbstractType
 {
+    /**
+     * @var SecurityContext
+     */
+    private $securityContext;
+
+    function __construct(SecurityContext $securityContext)
+    {
+        $this->securityContext = $securityContext;
+    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -23,19 +34,18 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('email', 'email');
-        $builder->add('username', 'text');
-        $builder->add('roles', 'entity', array(
-            'class' => 'BionicUniversity\UserBundle\Entity\Role',
-            'property' => 'name',
-            'expanded' => true,
-            'multiple'     => true
+        $builder->add('username', 'text', array(
+            'label'=> 'Имя'
         ));
+
         $builder->add('password', 'repeated', array(
             'first_name' => 'pass',
             'second_name' => 'confirm',
             'type' => 'password',
             'label' => false,
         ));
+
+        $builder->addEventSubscriber(new AddRoleFieldSubscriber($this->securityContext));
     }
 
     /**

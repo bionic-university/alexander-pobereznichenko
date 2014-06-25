@@ -20,9 +20,10 @@
                 {% if app.user %}
                     <a href="{{ path('user_show', {'id': app.user.id}) }}"
                        class="btn btn-lg btn-primary">{{ app.user.username }}</a>
-                    <a href=" {{ path('logout') }}" class="btn btn-lg btn-primary">logout</a>
+                    <a href=" {{ path('logout') }}" class="btn btn-lg btn-primary">выход</a>
                 {% else %}
-                    <a href="{{ path('login') }}" class="btn btn-lg btn-primary">Login</a>
+                    <a href="{{ path('login') }}" class="btn btn-lg btn-primary">вход</a>
+                    <a href="{{ path('account_register') }}" class="btn btn-lg btn-primary">регистрация</a>
                 {% endif %}
             </div>
             <div class="collapse navbar-collapse">

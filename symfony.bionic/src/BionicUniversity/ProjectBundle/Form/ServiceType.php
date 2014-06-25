@@ -15,8 +15,13 @@ class ServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('category')
+            ->add('name', 'text', array(
+                'label'=>'Название'
+            ))
+            ->add('category', 'entity', array(
+                'class'=>'BionicUniversity\ProjectBundle\Entity\Category',
+                'label'=>'Категория',
+            ))
         ;
     }
     
