@@ -1,6 +1,0 @@
-bionic_university_project_homepage:
-    pattern:  /
-    defaults: { _controller: BionicUniversityProjectBundle:Default:index }
-bionic_university_project_admin:
-    pattern: /admin/
-    defaults: { _controller: BionicUniversityProjectBundle:Admin:index }

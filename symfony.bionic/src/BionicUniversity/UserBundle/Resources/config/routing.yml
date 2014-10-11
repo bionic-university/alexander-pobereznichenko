@@ -1,7 +1,0 @@
-account_register:
-    path:     /register
-    defaults: { _controller: BionicUniversityUserBundle:Account:register }
-
-account_create:
-    path:     /register/create
-    defaults: { _controller: BionicUniversityUserBundle:Account:create }
