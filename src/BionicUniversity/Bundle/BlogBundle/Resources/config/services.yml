@@ -1,0 +1,5 @@
+parameters:
+
+services:
+    camelize:
+        class: BionicUniversity\Bundle\BlogBundle\TextModifier\Camelizer
